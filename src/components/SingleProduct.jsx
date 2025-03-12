@@ -100,7 +100,7 @@ function SingleProduct() {
     {/* recomemdent */}
 
     <div className='w-full px-1 py-2 mt-5 '>
-            <h2 className='text-2xl font-bold ml-2 mb-5'>Recomended</h2>
+            <h2 className='text-2xl font-bold ml-2 mb-5'>YOU ALSO LIKE</h2>
            <div className='w-full flex flex-wrap gap-5 justify-center'>
           
            {data2.map((item) => (
