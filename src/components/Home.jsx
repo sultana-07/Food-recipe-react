@@ -23,11 +23,7 @@ function Home() {
    console.log(cartItems)
 
   
-    // useEffect(() => {
-    //    fetch("https://api.freeapi.app/api/v1/public/meals/page=2")
-    //    .then(res => res.json())
-    //    .then(res => setdata2(res.data.data))
-    // },[])
+ 
     
   return (
   <>
