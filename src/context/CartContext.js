@@ -9,6 +9,7 @@ const CartContext = createContext({
 
     count : 0,
     addToCart : (item) => {},
+    deleteCart : (id) => {},
 
 })
 

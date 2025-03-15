@@ -112,6 +112,7 @@ function SingleProduct() {
                image={item.strMealThumb}
                btn ={ true}
                id={item.id}
+               item={item}
               />
               </div>
               

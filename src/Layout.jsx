@@ -13,8 +13,13 @@ function Layout() {
         setCartItems(prev => [item,...prev] );
          setCount(count+1)
   }
+
+  const deleteCart = (id) => {
+    setCartItems(cartItems.filter((prev) => prev.id != id))
+    setCount(count-1)
+  }
   return (
-   <CartProvider value={{addToCart,count,cartItems}}>
+   <CartProvider value={{addToCart,count,cartItems,deleteCart}}>
    <Header/>
    <Outlet/>
    <Footer/>

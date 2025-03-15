@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import {Link} from 'react-router'
+import {Link,NavLink} from 'react-router'
 import { useProduct } from '../context'
+import {useLocation} from 'react-router'
 
 function TrendingCard({names,instructions,image,btn,id,item}) {
 
-  const {addToCart}  = useProduct()
+  const {addToCart,deleteCart}  = useProduct()
 
   const [isClick,setIsClick] = useState(false)
+
+  const location = useLocation()
 
   const add = (e) => {
       e.preventDefault()
       addToCart(item);
       setIsClick(true)
+  }
+
+  const deleteitem = (e) => {
+    e.preventDefault();
+    deleteCart(id);
+    setIsClick(true);
   }
 
   return (
@@ -28,8 +37,10 @@ function TrendingCard({names,instructions,image,btn,id,item}) {
  
    <div className='w-full flex justify-between px-1'>
    {btn ?  <Link to={`/${id}`} className='bg-red-500 text-white px-5 py-2 rounded-2xl text-sm'>TRY</Link>: ""}
-   <button onClick={add} className=' cursor-pointer bg-black text-white px-3 py-2 rounded-2xl text-sm'>
-    {isClick ? "success": "Add cart"}</button>
+   {location.pathname == "/cart" ? <button onClick={deleteitem} className=' cursor-pointer bg-black text-white px-3 py-2 rounded-2xl text-sm'>
+   {isClick ? "success": "remove cart"}</button> : <button onClick={add} className=' cursor-pointer bg-black text-white px-3 py-2 rounded-2xl text-sm'>
+   {isClick ? "success": "Add cart"}</button>}
+  
    </div>
 
 </div>
