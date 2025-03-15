@@ -9,7 +9,7 @@ function Header() {
   return (
    <>
    <header>
-    <nav className=" bg-white border-b-2 border-black px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <nav className=" bg-white border-b-2 border-black px-4 lg:px-6 py-2.5 dark:bg-gray-800 ">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="https://flowbite.com" className="flex items-center">
                
@@ -30,7 +30,7 @@ function Header() {
                                 <NavLink
                                 to=""
                                     className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 ${isActive ? "text-orange-700" : "text-black"} duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        `block py-2 pr-4 pl-3 ${isActive ? "text-orange-700" : "text-white"} duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                                     }
                                 >
                                     Home
@@ -41,7 +41,7 @@ function Header() {
                                 <NavLink
                                 to="/cart"
                                     className={({isActive}) =>
-                                        `block py-2 pr-4 pl-3 ${isActive ? "text-orange-700" : "text-black"} duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                        `block py-2 pr-4 pl-3 ${isActive ? "text-orange-700" : "text-white"} duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
                                     }
                                 >
                                     cart : {count}
