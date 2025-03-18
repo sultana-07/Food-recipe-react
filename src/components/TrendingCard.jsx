@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import {Link,NavLink} from 'react-router'
+import React, {  useState } from 'react'
+import {Link} from 'react-router'
 import { useProduct } from '../context'
 import {useLocation} from 'react-router'
 
