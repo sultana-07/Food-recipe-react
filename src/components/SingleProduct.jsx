@@ -6,6 +6,7 @@ function SingleProduct() {
 
     const {id} = useParams();
     const page =( Math.random()*20);
+    const [isClick,setIsClick] = useState(false)
 
     const {addToCart} =  useProduct();
 
@@ -28,6 +29,7 @@ function SingleProduct() {
 
         const add = () => {
             addToCart(data)
+            setIsClick(true)
         }
        
   return (
@@ -97,7 +99,7 @@ function SingleProduct() {
              
               
               <h1 className='text-3xl font-extrabold mt-2'>{data.strMeal}</h1>
-              <button onClick={add} className=' cursor-pointer bg-black text-white px-3 mt-4 py-2 rounded-2xl text-sm'>Add cart</button>
+              <button onClick={add} className="cursor-pointer bg-black text-white px-3 mt-4 py-2 rounded-2xl text-sm">{isClick ? "success" : "Add cart"}</button>
               
              
               <h3 className='text-2xl font-bold mt-8'>INSTRUCTIONS</h3>
