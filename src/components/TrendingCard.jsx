@@ -29,7 +29,7 @@ function TrendingCard({names,instructions,image,btn,id,item}) {
   <img className="w-full h-40" src={image} alt="Sunset in the mountains"/>
   <div className="px-6 py-4   ">
     <div className="font-bold text-xl mb-2">{names.slice(0,14)}</div>
-    <p className="text-gray-700 text-base">  {instructions.slice(0,40)}</p>
+    <p className="text-gray-700 text-base">  {instructions.slice(0,40)}......</p>
      
     
    
