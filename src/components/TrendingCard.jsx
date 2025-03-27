@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 import { useProduct } from '../context'
 import {useLocation} from 'react-router'
 
-function TrendingCard({names,instructions,image,btn,id,item}) {
+function TrendingCard({names,instructions,image = null,btn,id = "",item = ""}) {
 
   const {addToCart,deleteCart}  = useProduct()
 
@@ -26,7 +26,7 @@ function TrendingCard({names,instructions,image,btn,id,item}) {
   return (
    <>
    <div className="max-w-64 h-80 rounded bg-white overflow-hidden shadow-2xl hover:scale-105 duration-200">
-  <img className="w-full h-40" src={image} alt="Sunset in the mountains"/>
+  <img className="w-full h-40" src={image ? image : "https://icrier.org/wp-content/uploads/2022/12/media-Event-Image-Not-Found.jpg" } alt="Sunset in the mountains"/>
   <div className="px-6 py-4   ">
     <div className="font-bold text-xl mb-2">{names.slice(0,14)}</div>
     <p className="text-gray-700 text-base">  {instructions.slice(0,40)}......</p>

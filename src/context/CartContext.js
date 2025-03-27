@@ -7,9 +7,12 @@ const CartContext = createContext({
         }
     ],
 
+    recipe :[{}],
+
     count : 0,
     addToCart : (item) => {},
     deleteCart : (id) => {},
+    addRecipe : (title,inst) => {},
 
 })
 

@@ -8,6 +8,8 @@ import Layout from './Layout.jsx'
 import Home from './components/Home.jsx'
 import SingleProduct from './components/SingleProduct.jsx'
 import CartPage from './components/CartPage.jsx'
+import CreateRecipe from './components/CreateRecipe.jsx'
+import SuccessPage from './components/SuccessPage.jsx'
 
 
 const route = createBrowserRouter([
@@ -27,6 +29,16 @@ const route = createBrowserRouter([
       {
         path : "cart",
         element : <CartPage/>
+      },
+
+      {
+        path : "createrecipe",
+        element : <CreateRecipe/>
+      },
+
+      {
+        path : "createrecipe/success",
+        element  : <SuccessPage/>
       }
 
     ]

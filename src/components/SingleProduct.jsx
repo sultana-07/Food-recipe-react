@@ -7,37 +7,60 @@ function SingleProduct() {
     const {id} = useParams();
     const page =( Math.random()*20);
     const [isClick,setIsClick] = useState(false)
+    
 
-    const {addToCart} =  useProduct();
+    const {addToCart,recipe} =  useProduct();
 
     const [data,setdata] = useState([])
     const [data2,setdata2] = useState([])
+    const [data3,setdata3] = useState([]);
 
-     useEffect(() => {
-           fetch(`https://api.freeapi.app/api/v1/public/meals/${id}`)
-           .then(res => res.json())
-           .then(res => setdata(res.data));
+   
+      useEffect(() => {
+         if(id < 300){
+          fetch(`https://api.freeapi.app/api/v1/public/meals/${id}`)
+          .then(res => res.json())
+          .then(res => setdata(res.data));
+   
+          fetch(`https://api.freeapi.app/api/v1/public/meals?page=${page}&limit=8`)
+          .then(res => res.json())
+          .then(res => setdata2(res.data.data));
+         }else{
+          const recipes = JSON.parse(localStorage.getItem("recipes"));
+         const temp =  (recipes.filter(item => item.id == id))
+         setdata(temp[0])
+            
+
+          fetch(`https://api.freeapi.app/api/v1/public/meals?page=${page}&limit=8`)
+          .then(res => res.json())
+          .then(res => setdata2(res.data.data));
+         }
+      
+
+        window.scrollTo(0,0)
+     },[id])
     
-           fetch(`https://api.freeapi.app/api/v1/public/meals?page=${page}&limit=8`)
-           .then(res => res.json())
-           .then(res => setdata2(res.data.data));
+    
+  
+    
 
-           window.scrollTo(0,0)
-        },[id])
+   
 
-        console.log(data2)
+        // console.log(data2)
 
         const add = () => {
             addToCart(data)
             setIsClick(true)
         }
+
+        console.log(data)
        
   return (
     <>
     <div className='w-full flex gap-2 p-2'>
        <div className='w-1/2 p-2'>
               <div className='w-full h-80 flex justify-center'>
-                <img className=' w-full object-cover' src={data.strMealThumb}alt="" />
+                <img className=' w-full object-cover' src={data.strMealThumb ? data.strMealThumb :"https://icrier.org/wp-content/uploads/2022/12/media-Event-Image-Not-Found.jpg"  }alt="" />
               </div>
              <div className='w-full flex mt-4'>
                      
@@ -105,7 +128,7 @@ function SingleProduct() {
               <h3 className='text-2xl font-bold mt-8'>INSTRUCTIONS</h3>
               <p className='mt-2 mb-3'>{data.strInstructions}</p>
               <h2 className=' text-2xl font-bold text-center mt-2 mb-6 '> Thank you</h2>
-              {data.strYoutube != "" ? <Link to={data.strYoutube} className='bg-red-500 text-white p-2  w-28 rounded-2xl'>
+              {data.strYoutube ? <Link to={data.strYoutube} className='bg-red-500 text-white p-2  w-28 rounded-2xl'>
                watch video
               </Link> : ""}
        </div>

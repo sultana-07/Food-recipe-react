@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import TrendingCard from './TrendingCard'
 import ToppickCard from './ToppickCard';
 import { useProduct } from '../context';
+import { Link } from 'react-router';
 
 
 function Home() {
-    const {cartItems} = useProduct()
+    const {cartItems} = useProduct();
+    const {recipe} = useProduct();
+    
 
     const [data,setdata] = useState([]);
     const [data2,setdata2] = useState([]);
@@ -21,9 +24,6 @@ function Home() {
        .then(res => setdata2(res.data.data))
     },[])
    console.log(cartItems)
-
-  
- 
     
   return (
   <>
@@ -43,6 +43,17 @@ function Home() {
                   
                 </div>
             </div>
+        </div>
+
+        <div className='w-full flex justify-end px-4 mt-2 '>
+           <Link 
+           to='createrecipe'
+           >
+             <button className='bg-green-500 text-white font-bold px-3 py-2 rounded-2xl'>create recipe</button>
+
+            
+           </Link>
+          
         </div>
 
         {/* trending items */}
@@ -87,6 +98,31 @@ function Home() {
               </div>
               :
               ""
+              
+           ))}
+           </div>
+        </div>
+
+        {/* recipe made my people */}
+
+        <div id='customeRecipe' className='w-full px-1 py-2 mt-5 '>
+            <h2 className='text-2xl font-bold ml-2 mb-5'> RECIPES MADE BY PEOPLE'S</h2>
+           <div className='w-full flex flex-wrap gap-5 justify-center'>
+          
+           {recipe.map((item) => (
+            
+              <div key={item.id}>
+                   <TrendingCard
+               names={item.strMeal}
+               instructions={item.strInstructions}
+               id = {item.id}
+               item={item}
+               image={item.strMealThumb}
+               btn ={ true}
+              
+               
+              />
+              </div>
               
            ))}
            </div>

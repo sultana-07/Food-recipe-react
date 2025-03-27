@@ -13,7 +13,7 @@ function CartPage() {
    <div className='w-full flex flex-wrap justify-center gap-3 mt-5'>
    
     {cartItems.map((item) => (
-        <div key={item.id}>
+        <div key={Date.now()}>
         <TrendingCard
     names={item.strMeal}
     instructions={item.strInstructions}
