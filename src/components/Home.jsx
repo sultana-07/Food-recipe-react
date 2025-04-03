@@ -36,7 +36,7 @@ function Home() {
                 <img className='w-full object-cover h-full ' src="https://www.licious.in/blog/wp-content/uploads/2020/12/3-Step-Chicken-Salad.jpg" alt="" />
 
                 <div className=' absolute bg-black text-white opacity-75 inset-0 flex flex-col items-center justify-center'>
-                   <h2 className='text-6xl text-white font-bold animate-pulse'> BE A GOOD CHEF</h2>
+                   <h2 className='text-6xl text-white font-bold animate-pulse sm:px-8'> BE A GOOD CHEF</h2>
                    <div className='w-80 text-center mt-1'>
                     <h3>make your and other's day happy by making & serving delicious Food</h3>
                    </div>
@@ -59,8 +59,8 @@ function Home() {
         {/* trending items */}
 
         <div className='w-full px-1 py-2 mt-5 '>
-            <h2 className='text-2xl font-bold ml-2 mb-5'>TRENDING RECIPES</h2>
-           <div className='w-full flex flex-wrap gap-5 justify-center'>
+            <h2 className='text-2xl font-bold ml-2 mb-5 text-center'>TRENDING RECIPES</h2>
+           <div className='w-full flex flex-wrap gap-5 justify-evenly'>
           
            {data.map((item) => (
             item.id <5 ?
