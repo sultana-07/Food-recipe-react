@@ -12,7 +12,7 @@ function CartPage() {
     const handlehome = () => {
       navigate("/");
     }
-    console.log(cartItems)
+    
 
     if(cartItems.length ==0) {
       return (
@@ -24,6 +24,7 @@ function CartPage() {
         </>
       )
     }
+    
   return (
    <>
     <h2 className='text-2xl font-bold text-center mt-3'>Cart items</h2>
