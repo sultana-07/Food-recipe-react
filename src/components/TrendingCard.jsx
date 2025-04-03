@@ -13,8 +13,13 @@ function TrendingCard({names,instructions,image = null,btn,id = "",item }) {
 
   const add = (e) => {
       e.preventDefault()
-      addToCart(item);
-      setIsClick(true)
+      if(isClick){
+        deleteCart(id)
+        setIsClick(false)
+      }else{
+        addToCart(item)
+        setIsClick(true)
+      }
   }
 
   const deleteitem = (e) => {

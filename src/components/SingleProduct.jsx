@@ -9,11 +9,11 @@ function SingleProduct() {
     const [isClick,setIsClick] = useState(false)
     
 
-    const {addToCart,recipe} =  useProduct();
+    const {addToCart,deleteCart} =  useProduct();
 
     const [data,setdata] = useState([])
     const [data2,setdata2] = useState([])
-    const [data3,setdata3] = useState([]);
+   
 
    
       useEffect(() => {
@@ -39,30 +39,40 @@ function SingleProduct() {
 
         window.scrollTo(0,0)
      },[id])
-    
-    
-  
-    
 
-   
+     const add = () => {
+      if(isClick){
+        deleteCart(data.id)
+        setIsClick(false)
+      }else{
+        addToCart(data)
+        setIsClick(true)
+      }
+           
+     }
 
-        // console.log(data2)
-
-        const add = () => {
-            addToCart(data)
-            setIsClick(true)
-        }
-
-        console.log(data)
+      
        
   return (
     <>
-    <div className='w-full flex gap-2 p-2'>
-       <div className='w-1/2 p-2'>
-              <div className='w-full h-80 flex justify-center'>
+    <div className='w-full lg:flex gap-2 p-2'>
+       <div className='w-full lg:w-1/2  h-fitp-2'>
+              <div className='w-full md:h-70  h-50 flex justify-center'>
                 <img className=' w-full object-cover' src={data.strMealThumb ? data.strMealThumb :"https://icrier.org/wp-content/uploads/2022/12/media-Event-Image-Not-Found.jpg"  }alt="" />
               </div>
-             <div className='w-full flex mt-4'>
+
+            <div className='w-full  '>
+            <h1 className='text-3xl font-extrabold mt-2'>{data.strMeal}</h1>
+           <div className='w-full flex justify-between mt-4  px-2'>
+           <button onClick={add} className="cursor-pointer bg-black text-white px-3 mt-4 py-2 rounded-2xl text-sm">{isClick ? "success" : "Add cart"}</button>
+
+           {data.strYoutube ? <Link to={data.strYoutube} className="cursor-pointer bg-red-600 text-white px-3 mt-4 py-2 rounded-2xl text-sm">
+               watch video
+              </Link> : ""}
+           </div>
+            </div>
+
+             <div className='w-full flex mt-7'>
                      
                <div className='w-1/2'>
                   <h2 className='text-xl text-center font-bold'>INGRIDIANT</h2>
@@ -118,19 +128,19 @@ function SingleProduct() {
              </div>
        </div>
 
-       <div className='w-1/2 p-2 '>
+       <div className='w-full p-2 '>
              
               
-              <h1 className='text-3xl font-extrabold mt-2'>{data.strMeal}</h1>
-              <button onClick={add} className="cursor-pointer bg-black text-white px-3 mt-4 py-2 rounded-2xl text-sm">{isClick ? "success" : "Add cart"}</button>
+              {/* <h1 className='text-3xl font-extrabold mt-2'>{data.strMeal}</h1>
+              <button onClick={add} className="cursor-pointer bg-black text-white px-3 mt-4 py-2 rounded-2xl text-sm">{isClick ? "success" : "Add cart"}</button> */}
               
              
               <h3 className='text-2xl font-bold mt-8'>INSTRUCTIONS</h3>
               <p className='mt-2 mb-3'>{data.strInstructions}</p>
               <h2 className=' text-2xl font-bold text-center mt-2 mb-6 '> Thank you</h2>
-              {data.strYoutube ? <Link to={data.strYoutube} className='bg-red-500 text-white p-2  w-28 rounded-2xl'>
+              {/* {data.strYoutube ? <Link to={data.strYoutube} className='bg-red-500 text-white p-2  w-28 rounded-2xl'>
                watch video
-              </Link> : ""}
+              </Link> : ""} */}
        </div>
     </div>
 
