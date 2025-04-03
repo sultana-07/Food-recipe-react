@@ -83,7 +83,7 @@ function Home() {
         {/* top pick for you */}
 
         <div className='w-full px-1 py-2 mt-12 '>
-            <h2 className='text-2xl font-bold ml-2 mb-5'>TOP PICKS FOR YOU</h2>
+            <h2 className='text-2xl font-bold ml-2 mb-5 text-center'>TOP PICKS FOR YOU</h2>
            <div className='w-full flex flex-wrap gap-5'>
            {data2.map((item) => (
               item.id <13 ?
